@@ -1,0 +1,102 @@
+.testimonials {
+  margin-top: 8rem;
+}
+.testimonials-cont {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2rem;
+
+  button {
+    @include cta(#fff, $Bright-Red, hsla(12, 88%, 59%, 0.5));
+  }
+}
+.testi-flex-cont {
+  width: 100vw;
+  overflow-x: scroll;
+  display: flex;
+  //justify-content: flex-start;
+  scroll-snap-type: x mandatory;
+}
+
+.testi-flex {
+  display: flex;
+  width: 400vw;
+  justify-content: flex-end;
+
+  .testi-cont {
+    scroll-snap-align: start;
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+  }
+
+  .testi {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+    background: $Brightest-Red;
+    padding: 2rem 1rem;
+    width: 80vw;
+
+    img {
+      width: 30%;
+    }
+  }
+}
+
+.testi-bullets {
+  display: flex;
+  gap: 0.25rem;
+
+  .bullet {
+    border-radius: 50%;
+    padding: 0.25rem;
+    border: 1px solid $Bright-Red;
+    transition: $t1;
+    cursor: pointer;
+
+    &:not(.active):hover {
+      opacity: 0.7;
+    }
+  }
+  .active {
+    background: $Bright-Red;
+  }
+}
+
+@media (min-width: 768px) {
+  .testi-flex-cont {
+    overflow: hidden;
+    width: 100%;
+  }
+  .testi-flex {
+    width: 100%;
+    gap: 0;
+    padding-right: 0;
+    overflow: hidden;
+    justify-content: space-between;
+    transform: translateX(0);
+    flex-wrap: wrap;
+
+    .testi {
+      width: auto;
+      background: none;
+      width: 45%;
+    }
+  }
+
+  .testi-bullets {
+    display: none;
+  }
+}
+
+@media (min-width: 900px) {
+  .testi-flex {
+    flex-wrap: nowrap;
+    .testi {
+      width: 100%;
+    }
+  }
+}

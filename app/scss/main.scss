@@ -1,0 +1,76 @@
+@import "./vars";
+@import "./mixins";
+@import "./burger-btn";
+@import "./header";
+@import "./features";
+@import "./testimonials";
+@import "./footer";
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Be Vietnam Pro", sans-serif;
+}
+
+body {
+  width: 100vw;
+  overflow-x: hidden;
+}
+
+ul {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+  transition: $t1;
+}
+
+p {
+  color: $Dark-Grayish-Blue;
+  line-height: 1.5;
+  max-width: 500px;
+  margin: 0 auto;
+}
+
+h1,
+h2,
+h3 {
+  color: $Dark-Blue;
+  font-weight: 700;
+}
+
+h3 {
+  font-size: 1rem;
+}
+.header-cont,
+.features-cont,
+.testimonials-cont,
+.prefooter-cont,
+.footer-cont {
+  width: 80%;
+  margin: 0 auto;
+}
+
+header,
+section,
+footer {
+  position: relative;
+  text-align: center;
+}
+
+@media (min-width: 768px) {
+  p {
+    margin: 0;
+  }
+  h1 {
+    font-size: 2.75rem;
+  }
+  h2 {
+    font-size: 2.25rem;
+  }
+  h3 {
+    font-size: 1.25rem;
+  }
+}

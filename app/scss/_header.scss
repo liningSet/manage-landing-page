@@ -1,0 +1,181 @@
+.nav-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  z-index: 1000;
+  position: absolute;
+  transition: $t1;
+  top: 0;
+  left: 0;
+}
+
+#scrolling-nav {
+  background: #fff;
+  position: fixed;
+  box-shadow: 0 2px 5px rgba(90, 90, 90, 0.25);
+
+  .navbar {
+    padding: 1.5rem 0;
+  }
+}
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 2rem 0;
+  width: 80%;
+}
+
+.navlist {
+  display: flex;
+  align-items: center;
+
+  .nav-item {
+    display: none;
+
+    &.burger-btn {
+      display: block;
+      position: relative;
+      z-index: 999999;
+    }
+  }
+}
+
+.header-cta {
+  display: none;
+}
+
+header {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  position: relative;
+  > img {
+    position: absolute;
+    width: 100%;
+    top: -1rem;
+    right: -1rem;
+    z-index: -100;
+  }
+}
+
+.hero-container {
+  margin-top: 6rem;
+  display: flex;
+  flex-direction: column-reverse;
+  gap: 2rem;
+  img {
+    width: 100%;
+    max-width: 400px;
+  }
+
+  > * {
+    flex: 1;
+  }
+  .hero-text {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    align-items: center;
+
+    button {
+      @include cta(#fff, $Bright-Red, hsla(12, 88%, 59%, 0.5));
+    }
+  }
+}
+
+@media (min-width: 768px) {
+  header {
+    > img {
+      width: 50%;
+      top: -5rem;
+      right: -5rem;
+    }
+  }
+  .hero-container {
+    flex-direction: row;
+    text-align: left;
+    align-items: center;
+
+    img {
+      max-width: none;
+    }
+
+    .hero-text {
+      align-items: flex-start;
+      gap: 2rem;
+    }
+  }
+}
+
+@media (min-width: 900px) {
+  .navlist {
+    gap: 2vw;
+
+    .nav-item {
+      display: block;
+
+      a {
+        color: $Dark-Blue;
+        font-size: 0.9rem;
+        font-weight: 500;
+      }
+
+      &:hover a {
+        color: $Dark-Grayish-Blue;
+      }
+
+      &.burger-btn {
+        display: none;
+      }
+    }
+  }
+
+  .header-cta {
+    display: block;
+    @include cta(#fff, $Bright-Red, hsla(12, 88%, 59%, 0.5));
+  }
+}
+
+.overlay {
+  height: 100vh;
+  width: 100vw;
+  position: fixed;
+  top: 0;
+  background: linear-gradient(to top, rgba(48, 48, 48, 0.85), transparent 95%);
+  z-index: 9999;
+  pointer-events: none;
+  //display: none;
+  background: transparent;
+
+  ul {
+    background: #fff;
+    position: absolute;
+    width: 80%;
+    left: 50%;
+    top: 5.5rem;
+    transform: translateX(-50%);
+    border-radius: 5px;
+    padding: 1rem 0;
+    text-align: center;
+    overflow: hidden;
+    height: 0;
+    padding: 0;
+
+    li {
+      padding: 1rem 0;
+      cursor: pointer;
+      font-weight: 500;
+
+      a {
+        color: $Dark-Blue;
+      }
+
+      &:hover a {
+        color: $Bright-Red;
+      }
+    }
+  }
+}
